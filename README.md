@@ -153,11 +153,11 @@ final_model = HistGradientBoostingClassifier(max_iter=300,
 Como ya fue mencionado, el mejor modelo fue HistGradientBoostingClassifier, con un desempeño consistente y superior.
 
 - **Consistencia estadística**: Más allá de la media, los boxplots reflejaron una distribución favorable en comparación con los otros modelos, y el test de Nemenyi confirmó que las diferencias fueron estadísticamente significativas:
-  - En términos de **AUC**, HistGB superó significativamente la Logistic Regression y Random Forest, con una prueba de hipótesis.
+  - En términos de **AUC** (Score: 0.8058), HistGB superó significativamente la Logistic Regression y Random Forest, respaldado también con una prueba de hipótesis p 0.05.
   - En **ALIFT**, la mejora fue clara frente a ambos modelos: p ≈ 0.005 (vs Logistic Regression) y p ≈ 0.01 (vs Random Forest).
 - **Curva ROC y AUC:** destaca su habilidad discriminativa (AUC ≈ 0.8058).
 - **Lift y Cumulative Lift Curve:**  indican que el modelo identifica eficazmente a los clientes con alta probabilidad de conversión. El ALIFT alcanzado fue de 0.7714, lo cual significa que el modelo es un 77.14% más efectivo que un targeting aleatorio al momento de captar clientes potenciales. Esto implica que, al usar el modelo para priorizar a quién contactar, se puede obtener una ganancia significativa en eficiencia de campañas.
-Además, el lift en el top 10% fue de 4.63, lo que indica que si se contacta al 10% de clientes con mayor score del modelo, se obtienen 4.631 veces más suscriptores que si se hubieran contactado al azar.
+Además, el lift en el top 10% fue de 4.63, lo que indica que si se contacta al 10% de clientes con mayor score del modelo, se obtienen 4.631 veces más suscriptores que si se hubieran contactado al azar. (2.28 sobre el total del dataset, que sigue siendo muy buen desempeño)
 - **Interpretabilidad**: Permite análisis de importancia de variables con SHAP, lo cual es esencial en escenarios de negocio como marketing financiero, donde se requiere entender las decisiones del modelo.
 - **Robustez y escalabilidad**: HistGB es eficiente para datasets de tamaño moderado, tolerante a outliers y capaz de modelar relaciones no lineales sin necesidad de preprocesamiento complejo. A diferencia de modelos tradicionales de boosting, su versión basada en histogramas permite reducir tiempos de entrenamiento sin sacrificar rendimiento.
 
@@ -189,6 +189,8 @@ Respondiendo a las preguntas de las instrucciones:
 - **Optimización de campañas:** Permite planear campañas en meses más efectivos, usando medios más exitosos como el celular y focalizándose en clientes con historial positivo.
 - **Personalización del mensaje:** Incluso desde el EDA se pueden notar ciertos patrones, el equipo puede adaptar los mensajes según las características del cliente. Por ejemplo, reforzar beneficios específicos a jubilados o estudiantes, que son aquellos con ya de por si una tasa alta de suscripción; o tratar de atacar ocupaciones que tienen la tasa baja para que esta aumente. 
 - **Evaluación continua:** Al integrar nuevas campañas, el modelo puede seguir actualizándose y ayudar a detectar cambios en comportamiento o respuesta, manteniéndose como una herramienta viva y útil.
+
+Nota Final: Modelo adjunto en `model/final_model.joblib`
 
 ## 8. Fuentes
 S. Moro, P. Cortez and P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems (2014), doi:10.1016/j.dss.2014.03.001.
