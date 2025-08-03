@@ -1,0 +1,8 @@
+pandas
+numpy=2.2
+seaborn
+scikit-learn
+scipy
+tqdm
+scikit_posthocs
+shap
